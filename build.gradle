@@ -1,0 +1,41 @@
+buildscript {
+	ext {
+		springBootVersion = '1.5.8.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+		mavenLocal()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.cognitivetest'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven {
+		url 'http://repo.spring.io/milestone'
+	}
+	mavenLocal()
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.slf4j:jcl-over-slf4j:1.7.12')
+	compile('org.projectlombok:lombok:1.16.18')
+	compile('ch.qos.logback:logback-classic:1.2.3')
+	compile('ch.qos.logback:logback-access:1.2.3')
+	compile('net.logstash.logback:logstash-logback-encoder:4.7')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
