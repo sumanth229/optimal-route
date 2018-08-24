@@ -1,5 +1,6 @@
 package com.cognitivetest.optimalroute.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import lombok.Getter;
@@ -12,7 +13,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class DisplayDTO {
+public class DisplayDTO implements Serializable{
   private Character node;
-  private List<Node> adjacentNodes;
+  private List<Edge> adjacentNodes;
 }

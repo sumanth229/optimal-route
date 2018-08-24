@@ -1,5 +1,6 @@
 package com.cognitivetest.optimalroute.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import lombok.AllArgsConstructor;
@@ -14,8 +15,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class RequestModel {
+public class RequestModel implements Serializable{
 
-  Integer vertices;
-  List<Node> nodes;
+  List<Edge> edges;
 }

@@ -6,19 +6,15 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 /**
- * Created by sumanth on 8/22/18.
+ * Created by sumanth on 8/24/18.
  */
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-public class Node implements Serializable{
-  Character u;
-  Character v;
-  Integer distance;
-  Integer speedRate;
+public class OptimalPathDTO implements Serializable{
+  private String optimalPath;
+  private Double optimalTime;
 }

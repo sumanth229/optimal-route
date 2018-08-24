@@ -13,23 +13,53 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Grid {
-  private Map<Character, LinkedList<Node>> nodeMap;
+  private Map<Character, LinkedList<Edge>> nodeMap;
 
   public Grid() {
     this.nodeMap = new HashMap<>();
   }
 
-  public void addToGrid(Node node) {
-    LinkedList<Node> sourceList = nodeMap.get(node.getU());
-    LinkedList<Node> destList = nodeMap.get(node.getV());
+  public void addToGrid(Edge edge) {
+    LinkedList<Edge> sourceList = nodeMap.get(edge.getU());
+    LinkedList<Edge> destList = nodeMap.get(edge.getV());
 
     sourceList = (sourceList == null) ? new LinkedList<>() : sourceList;
     destList = (destList == null) ? new LinkedList<>() : destList;
 
-    sourceList.add(node);
-    nodeMap.put(node.getU(), sourceList);
+    sourceList.add(edge);
+    nodeMap.put(edge.getU(), sourceList);
 
-    destList.add(new Node(node.getV(), node.getU(), node.getDistance(), node.getSpeedRate()));
-    nodeMap.put(node.getV(), destList);
+    destList.add(new Edge(edge.getV(), edge.getU(), edge.getDistance(), edge.getSpeedRate()));
+    nodeMap.put(edge.getV(), destList);
+  }
+
+  public void updateGrid(Edge edge) {
+    for (Edge n : nodeMap.get(edge.getU())) {
+      if (n != null && n.getV() == edge.getV()) {
+        n.setDistance(edge.getDistance());
+        n.setSpeedRate(edge.getSpeedRate());
+      }
+    }
+  }
+
+  public void deleteEdge(Edge edge) {
+    // removing edges from u to v of adjacency list
+    for (Edge n : nodeMap.get(edge.getU())) {
+      if (n.getV() == edge.getV()) {
+        nodeMap.get(edge.getU()).remove(n);
+        if (nodeMap.get(edge.getU()).size() == 0) {
+          nodeMap.remove(edge.getU());
+        }
+      }
+    }
+    // removing edges from v to u of adjacency list
+    for (Edge n : nodeMap.get(edge.getV())) {
+      if (n.getU() == edge.getU()) {
+        nodeMap.get(edge.getV()).remove(n);
+        if (nodeMap.get(edge.getU()).size() == 0) {
+          nodeMap.remove(edge.getU());
+        }
+      }
+    }
   }
 }
