@@ -1,5 +1,5 @@
 # APIs 
-1. create grid: creates grid/route 
+1. create grid: creates grid/route\
     input format : list of nodes as json to be passed in the request body
   ```JSON
   {
@@ -43,11 +43,11 @@
   ]
 }
 ```
-2. update grid: updates grid/route
-    a. operations supported: 
-                        1. add edge : add edge to the existing grid
-                        2. modify edge : update speedRate and distance of existing edge of the grid
-                        3. delete edge : delete an edge of the existing grid
+2. update grid: updates grid/route\
+    a. operations supported\
+                        1. add edge : add edge to the existing grid\
+                        2. modify edge : update speedRate and distance of existing edge of the grid\
+                        3. delete edge : delete an edge of the existing grid\
     b. input format :  list of nodes as json to be passed in the request body
  ```JSON
  {
@@ -76,7 +76,7 @@
 ```
 
 3. get route : fetch the grid/route created
-4. get optimal path : get the optimal path between source and destination        
+4. get optimal path : get the optimal path between source and destination
     a. input format :
                     request param : source, destination
 
