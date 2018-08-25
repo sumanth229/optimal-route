@@ -19,7 +19,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @ComponentScan(basePackages = {"com.cognitivetest.optimalroute"})
 public class Application {
-  // You have to write the unit test only for the logic methods
 
   public static void main(String[] args) {
     SpringApplication.run(Application.class, args);
