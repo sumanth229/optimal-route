@@ -51,6 +51,7 @@ public class OptimalRouteServiceImpl implements OptimalRouteService {
     RouteResponse<Boolean> response = new RouteResponse<>();
     response.setResponseObject(Boolean.FALSE);
     requestModel.getEdges().forEach(this::updateByCase);
+    response.setResponseObject(Boolean.TRUE);
     return response;
   }
 
@@ -59,6 +60,7 @@ public class OptimalRouteServiceImpl implements OptimalRouteService {
    * ADD: to add a new node
    * UPDATE: modify the speedRate and distance
    * DELETE: delete the edge
+   *
    * @param edge
    */
   private void updateByCase(Edge edge) {
@@ -123,6 +125,9 @@ public class OptimalRouteServiceImpl implements OptimalRouteService {
               .put(n.getV(), timeMap.get(minNode) + ((double) n.getDistance() / n.getSpeedRate()));
           prevMap.put(n.getV(), n.getU());
         }
+      }
+      if (minNode == destination) {
+        break;
       }
     }
     // constructing optimal path as a string builder

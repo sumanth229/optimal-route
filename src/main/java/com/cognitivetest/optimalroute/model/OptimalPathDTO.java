@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class OptimalPathDTO implements Serializable{
+public class OptimalPathDTO implements Serializable {
   private String optimalPath;
   private Double optimalTime;
 }

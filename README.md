@@ -80,4 +80,6 @@
     a. input format :
                     request param : source, destination
 
+url : http://localhost:8080/swagger-ui.html#!/optimal-route-controller/
+
 Note : To support update of existing grid, Map is being used instead of array or list to store graph.               
