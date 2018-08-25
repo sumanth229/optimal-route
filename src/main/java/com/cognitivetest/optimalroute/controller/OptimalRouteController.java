@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -25,7 +24,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * Created by sumanth on 8/22/18.
  */
 @Slf4j
-@CrossOrigin
 @EnableSwagger2
 @RequestMapping("/v1")
 @RestController
@@ -37,7 +35,7 @@ public class OptimalRouteController {
   /**
    * create grid/route
    *
-   * @param requestModel
+   * @param requestModel holds list of edges
    * @return true/false status of creation
    */
   @PostMapping("/route/create")
@@ -51,7 +49,7 @@ public class OptimalRouteController {
   /**
    * update grid/route
    *
-   * @param requestModel
+   * @param requestModel holds list of edges
    * @return true/false status of update
    */
   @PutMapping("/route/update")
@@ -77,8 +75,8 @@ public class OptimalRouteController {
   /**
    * get optimal route given source and destination
    *
-   * @param source
-   * @param destination
+   * @param source      source node
+   * @param destination target node
    * @return
    */
   @GetMapping("/route/optimalroute")
